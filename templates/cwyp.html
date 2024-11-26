@@ -1,0 +1,141 @@
+<!-- extend base layout -->
+{% extends "index_base.html" %}cd
+
+{% block head_css %}
+        {{ super() }}
+        <link href="{{url_for('static',filename='css/custom.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1>寵物用品</h1>
+    </div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>自動切換幻燈片</title>
+  <style>
+    .slide {
+      display: none;
+    }
+    .slide.active {
+      display: block;
+    }
+    .thumbnail {
+      width: 100px;
+      height: auto;
+      cursor: pointer;
+    }
+    .thumbnail.active {
+      border: 2px solid red;
+    }
+    .navigation-buttons {
+      margin-top: 10px;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var slides = document.getElementsByClassName("slide");
+      var thumbnails = document.getElementsByClassName("thumbnail");
+      var currentSlideIndex = 0;
+
+      function showSlide(index) {
+        slides[currentSlideIndex].classList.remove("active");
+        thumbnails[currentSlideIndex].classList.remove("active");
+        currentSlideIndex = index;
+        slides[currentSlideIndex].classList.add("active");
+        thumbnails[currentSlideIndex].classList.add("active");
+      }
+
+      function showNextSlide() {
+        var newIndex = (currentSlideIndex + 1) % slides.length;
+        showSlide(newIndex);
+      }
+
+      function showPreviousSlide() {
+        var newIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+        showSlide(newIndex);
+      }
+
+      for (var i = 0; i < thumbnails.length; i++) {
+        thumbnails[i].addEventListener("click", function(index) {
+          return function() {
+            showSlide(index);
+          };
+        }(i));
+      }
+
+      setInterval(showNextSlide, 2000);
+
+      var previousButton = document.getElementById("previous-button");
+      var nextButton = document.getElementById("next-button");
+
+      previousButton.addEventListener("click", function() {
+        showPreviousSlide();
+      });
+
+      nextButton.addEventListener("click", function() {
+        showNextSlide();
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="slide active">
+    <img src="/static/img/10.jpg" alt="Slide 1" />
+   
+  </div>
+  <div class="slide">
+    <img src="/static/img/11.jpg" alt="Slide 2" />
+ 
+  </div>
+  <div class="slide">
+    <img src="/static/img/12.jpg" alt="Slide 3" />
+
+  </div>
+ <script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var slides = document.getElementsByClassName("slide");
+    var currentSlideIndex = 0;
+
+    function showSlide(index) {
+      slides[currentSlideIndex].classList.remove("active");
+      currentSlideIndex = index;
+      slides[currentSlideIndex].classList.add("active");
+    }
+
+    function showNextSlide() {
+      var newIndex = (currentSlideIndex + 1) % slides.length;
+      showSlide(newIndex);
+    }
+
+    function showPreviousSlide() {
+      var newIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+      showSlide(newIndex);
+    }
+
+    setInterval(showNextSlide, 2000);
+
+    var previousButton = document.getElementById("previous-button");
+    var nextButton = document.getElementById("next-button");
+
+    previousButton.addEventListener("click", function() {
+      showPreviousSlide();
+    });
+
+    nextButton.addEventListener("click", function() {
+      showNextSlide();
+    });
+  });
+</script>
+  
+</body>
+</html>
+</div>
+
+
+
+   
+  
+{% endblock %}
