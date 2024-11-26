@@ -1,0 +1,31 @@
+li.tight {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.navbar-inverse {
+    background-color: green;
+    border-color: red;
+}
+
+.navbar-brand a{
+    color: red;
+}
+.navber-roler {
+    color: red;
+}
+.box{
+
+    margin: auto;
+      display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  .box11:before,
+  .box11:after{
+    content: '';
+    display: block;
+    width:100%;
+  }
