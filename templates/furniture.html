@@ -1,0 +1,100 @@
+<!-- extend base layout -->
+{% extends "index_base.html" %}
+
+{% block head_css %}
+        {{ super() }}
+        <link href="{{url_for('static',filename='css/custom.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1>家品傢俬</h1>
+    </div>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>自動切換幻燈片</title>
+  <style>
+    .slide {
+      display: none;
+    }
+    .slide.active {
+      display: block;
+    }
+    .thumbnail {
+      width: 100px;
+      height: auto;
+      cursor: pointer;
+    }
+    .thumbnail.active {
+      border: 2px solid red;
+    }
+    .navigation-buttons {
+      margin-top: 10px;
+    }
+  </style>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var slides = document.getElementsByClassName("slide");
+    var currentSlideIndex = 0;
+
+    function showSlide(index) {
+      slides[currentSlideIndex].classList.remove("active");
+      currentSlideIndex = index;
+      slides[currentSlideIndex].classList.add("active");
+    }
+
+    function showNextSlide() {
+      var newIndex = (currentSlideIndex + 1) % slides.length;
+      showSlide(newIndex);
+    }
+
+    function showPreviousSlide() {
+      var newIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+      showSlide(newIndex);
+    }
+
+    setInterval(showNextSlide, 2000);
+
+    var previousButton = document.getElementById("previous-button");
+    var nextButton = document.getElementById("next-button");
+
+    previousButton.addEventListener("click", function() {
+      showPreviousSlide();
+    });
+
+    nextButton.addEventListener("click", function() {
+      showNextSlide();
+    });
+  });
+</script>
+
+</head>
+<body>
+  <div class="slide active">
+    <img src="/static/img/bed.jpg" alt="Slide 1" />
+        <a href="/app/templates/product1.html">
+
+   
+  </div>
+  <div class="slide">
+    <img src="/static/img/kitchen.jpg" alt="Slide 2" />
+            <a href="/app/templates/product1.html">
+
+ 
+  </div>
+  <div class="slide">
+    <img src="/static/img/bathroom.jpg" alt="Slide 3" />
+            <a href="/app/templates/product1.html">
+
+
+  </div>
+
+ 
+  
+</body>
+</html>
+
+{% endblock %}

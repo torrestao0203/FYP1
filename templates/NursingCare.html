@@ -1,0 +1,115 @@
+<!-- extend base layout -->
+{% extends "index_base.html" %}
+
+{% block head_css %}
+{{ super() }}
+<link href="{{url_for('static',filename='css/custom.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+
+
+<nav class="site-header sticky-top" style="background-color: white;
+                box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+                text-align: center;
+                padding: 16px">
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="link" href="#" style="color: white;
+                      font-size: 18px;
+                      letter-spacing: 2px;
+                      margin-right: 10px">
+      <!-- SVG code -->
+    </a>
+    <a class="d-none d-md-inline-block link"
+   href="{{ url_for('SupermarketView.supermarket') }}"
+                      style="color: black;
+                      font-size: 18px;
+                      letter-spacing: 2px;
+                      margin-right: 10px">超級市場</a>
+
+    <a class="d-none d-md-inline-block link" 
+    href="{{ url_for('NursingCareView.NursingCare') }}"
+                      style="color: black;
+                      font-size: 18px;
+                      letter-spacing: 2px;
+                      margin-right: 10px">護理保健</a>
+
+    <a class="d-none d-md-inline-block link" 
+    href="{{ url_for('SkinView.Skin') }}"
+                      style="color: black;
+                      font-size: 18px;
+                      letter-spacing: 2px;
+                      margin-right: 10px">護膚化妝</a>
+
+
+
+    <a class="d-none d-md-inline-block link" 
+    href="#" 
+                      style="color: black;
+                      font-size: 18px;
+                      letter-spacing: 2px;
+                      margin-right: 10px">直送澳門</a>
+    <a class="d-none d-md-inline-block link" 
+    href="#" 
+                      style="color: black;
+                      font-size: 18px;
+                      letter-spacing: 2px;
+                      margin-right: 10px">母嬰育兒</a>
+    <a class="d-none d-md-inline-block link" 
+    href="#" 
+                      style="color: black;
+                      font-size: 18px;
+                      letter-spacing: 2px;
+                      margin-right: 10px">寵物用品</a>
+    <a class="d-none d-md-inline-block link" 
+    href="#" 
+                      style="color: black;
+                      font-size: 18px;
+                      letter-spacing: 2px;
+                      margin-right: 10px">大腦場</a>
+    <a class="d-none d-md-inline-block link" 
+    href="#" 
+                      style="color: black;
+                      font-size: 18px;
+                      letter-spacing: 2px;
+                      margin-right: 10px">家居電器</a>
+    <a class="d-none d-md-inline-block link" 
+    href="#" 
+                      style="color: black;
+                      font-size: 18px;
+                      letter-spacing: 2px;
+                      margin-right: 10px">家品傢俬</a>
+    <a class="d-none d-md-inline-block link" 
+    href="#" 
+                      style="color: black;
+                      font-size: 18px;
+                      letter-spacing: 2px;
+                      margin-right: 10px">吃喝玩樂</a>
+    <a class="d-none d-md-inline-block link" 
+    href="#" 
+                      style="color: black;
+                      font-size: 18px;
+                      letter-spacing: 2px;
+                      margin-right: 10px">運動旅行</a>
+    <a class="d-none d-md-inline-block link" 
+    href="#" 
+                      style="color: black;
+                      font-size: 18px;
+                      letter-spacing: 2px;
+                      margin-right: 10px">玩具圖書</a>
+  </div>
+</nav>
+
+<div class="box box11">
+  <div class="content">
+    <input type="text" class="SuggestionSearch-input" placeholder="輸入品牌或產品名稱，搜尋全場 2,041,600 件商品" value="">
+  </div>
+</div>
+
+<div>
+  <img src="/static/img/Nursing1.jpg">
+  <img src="/static/img/Nursing2.jpg">
+</div>
+
+{% endblock %}
