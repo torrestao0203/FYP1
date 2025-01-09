@@ -102,6 +102,7 @@ class NewsPageView(BaseView):
         self.update_redirect()
         return self.render_template('cwyp.html', param1=param1)
     
+    
 
 
 db.create_all()
@@ -110,14 +111,17 @@ db.create_all()
 appbuilder.add_view(NewsPageView, 'Local News', category="超級市場")
 appbuilder.add_link("Global News", href="/newspageview/hlpk/", category="護理保健")
 appbuilder.add_link("Global NewsTEST", href="/newspageview/hffc/", category="護膚化妝")
+
 appbuilder.add_link("時尚服飾", href="/newspageview/zsam/", category="直送澳門")
 appbuilder.add_link("玩具圖書", href="/newspageview/zsam/", category="直送澳門")
 appbuilder.add_link("超級市場", href="/newspageview/zsam/", category="直送澳門")
+
 appbuilder.add_link("嬰兒奶粉", href="/newspageview/myye/", category="母嬰育兒")
 appbuilder.add_link("身體清潔", href="/newspageview/myye/", category="母嬰育兒")
 appbuilder.add_link("奶樽", href="/newspageview/myye/", category="母嬰育兒")
 appbuilder.add_link("母乳餵哺用品", href="/newspageview/myye/", category="母嬰育兒")
 appbuilder.add_link("嬰兒醫療", href="/newspageview/myye/", category="母嬰育兒")
+
 appbuilder.add_link("狗狗專區", href="/newspageview/cwyp/", category="寵物用品")
 appbuilder.add_link("貓貓專區", href="/newspageview/cwyp/", category="寵物用品")
 appbuilder.add_link("其他寵物專區", href="/newspageview/cwyp/", category="寵物用品")
@@ -131,12 +135,16 @@ appbuilder.add_link("Local NewsTEST", href="/newspageview/kpks/", category="家�
 appbuilder.add_link("必嚐美食", href="/newspageview/foodanddrink/", category="吃喝玩樂")
 appbuilder.add_link("美容及健康服務", href="/newspageview/foodanddrink/", category="吃喝玩樂")
 appbuilder.add_link("旅遊住宿", href="/newspageview/foodanddrink/", category="吃喝玩樂")
+
 appbuilder.add_link("旅行用品", href="/newspageview/travel/", category="運動旅行")
 appbuilder.add_link("行山裝備", href="/newspageview/travel/", category="運動旅行")
 appbuilder.add_link("健身產品", href="/newspageview/travel/", category="運動旅行")
+
 appbuilder.add_link("迪士尼", href="/newspageview/toy/", category="玩具圖書")
 appbuilder.add_link("漫威", href="/newspageview/toy/", category="玩具圖書")
 appbuilder.add_link("教科書", href="/newspageview/toy/", category="玩具圖書")
+
+
 
 
 
@@ -145,4 +153,6 @@ appbuilder.add_view(MenuItemView, "MenuItem", icon="fa-folder-open-o", category=
 appbuilder.add_view(MenuCategoryView, "MenuCategory", icon="fa-folder-open-o", category="Admin")
 appbuilder.add_view(NewsView, "News", icon="fa-folder-open-o", category="Admin")
 appbuilder.add_view(NewsCategoryView, "NewsCategory", icon="fa-folder-open-o", category="Admin")
+
+
 
