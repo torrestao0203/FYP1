@@ -112,4 +112,186 @@
   <img src="/static/img/sup2.jpg">
 </div>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .products, .cart {
+      margin-bottom: 30px;
+    }
+
+    .products .product, .cart table {
+      margin: 15px 0;
+    }
+
+    button {
+      padding: 5px 10px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    #total-price {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Shopping Cart System</h1>
+  </header>
+
+  <main>
+    <section class="products">
+      <h2>Products</h2>
+      <div class="product">
+        <h3>Orange</h3>
+        <p>Price: $1.50</p>
+        <button class="add-to-cart" data-name="Orange" data-price="1.5">Add to Cart</button>
+      </div>
+      <div class="product">
+        <h3>Apple</h3>
+        <p>Price: $2.00</p>
+        <button class="add-to-cart" data-name="Apple" data-price="2.0">Add to Cart</button>
+      </div>
+      <div class="product">
+        <h3>Banana</h3>
+        <p>Price: $0.75</p>
+        <button class="add-to-cart" data-name="Banana" data-price="0.75">Add to Cart</button>
+      </div>
+    </section>
+
+    <section class="cart">
+      <h2>Your Cart</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items"></tbody>
+      </table>
+      <p id="total-price">Total: $0.00</p>
+      <button id="clear-cart">Clear Cart</button>
+    </section>
+  </main>
+
+  <script>
+    const cart = [];
+
+    // Function to add item to the cart
+    function addToCart(name, price) {
+      const existingItem = cart.find((item) => item.name === name);
+
+      if (existingItem) {
+        existingItem.quantity++;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+
+      renderCart();
+    }
+
+    // Function to remove an item from the cart
+    function removeFromCart(name) {
+      const index = cart.findIndex((item) => item.name === name);
+      if (index !== -1) {
+        cart.splice(index, 1);
+      }
+
+      renderCart();
+    }
+
+    // Function to update the cart display
+    function renderCart() {
+      const cartItems = document.getElementById('cart-items');
+      const totalPrice = document.getElementById('total-price');
+      cartItems.innerHTML = '';
+
+      let total = 0;
+
+      cart.forEach((item) => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>$${item.price.toFixed(2)}</td>
+          <td>${item.quantity}</td>
+          <td>$${subtotal.toFixed(2)}</td>
+          <td>
+            <button onclick="removeFromCart('${item.name}')">Remove</button>
+          </td>
+        `;
+        cartItems.appendChild(row);
+      });
+
+      totalPrice.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    // Add event listeners to "Add to Cart" buttons
+    document.querySelectorAll('.add-to-cart').forEach((button) => {
+      button.addEventListener('click', () => {
+        const name = button.dataset.name;
+        const price = parseFloat(button.dataset.price);
+        addToCart(name, price);
+      });
+    });
+
+    // Clear the cart
+    document.getElementById('clear-cart').addEventListener('click', () => {
+      cart.length = 0;
+      renderCart();
+    });
+  </script>
+</body>
+</html>
+
+
 {% endblock %}
+
+
