@@ -75,26 +75,47 @@
 <body>
   <div class="slide active">
     <img src="/static/img/6.jpg" alt="Slide 1" />
-        <a href="/app/templates/product1.html">
+        <a href="/app/templates/product01.html">
 
    
   </div>
   <div class="slide">
     <img src="/static/img/4.jpg" alt="Slide 2" />
-            <a href="/app/templates/product1.html">
+            <a href="/app/templates/product01.html">
 
  
   </div>
   <div class="slide">
     <img src="/static/img/5.jpg" alt="Slide 3" />
-            <a href="/app/templates/product1.html">
+            <a href="/app/templates/product01.html">
 
 
   </div>
+  </body>
+  <h1>Product List</h1>
+    
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <!-- Add other headers as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <!-- Add other fields as needed -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
- 
-  
-</body>
 </html>
 
 {% endblock %}

@@ -2,6 +2,15 @@ import datetime
 from sqlalchemy import Table, Column, Integer, String, ForeignKey, Date, Text
 from sqlalchemy.orm import relationship
 from flask_appbuilder import Model
+from sqlalchemy import Table, Column, Integer, String, ForeignKey, Date, Text
+from sqlalchemy.orm import relationship
+from flask_appbuilder import Model
+from flask_appbuilder import Model
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
+
+
+
 
 class Gender(Model):
     id = Column(Integer, primary_key=True)
@@ -106,21 +115,7 @@ class NewsCategory(Model):
     __tablename__ = 'news_category'
     id = Column(Integer, primary_key=True)
     name = Column(String(50), nullable=False)
-
-class supermarket(Model):
-    __tablename__ = '超級市場_category'
-    id = Column(Integer, primary_key=True)
-    name = Column(String(50), nullable=False)
-
-
-
-class Nursing(Model):
-    __tablename__ = '護理保健_category'
-    id = Column(Integer, primary_key=True)
-    name = Column(String(50), nullable=False)
-
-
-class skin(Model):
-    __tablename__ = '護膚化妝_category'
-    id = Column(Integer, primary_key=True)
-    name = Column(String(50), nullable=False)
+    
+    
+    
+    

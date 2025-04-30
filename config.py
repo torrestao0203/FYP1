@@ -11,9 +11,9 @@ OPENID_PROVIDERS = [
     { 'name': 'Flickr', 'url': 'http://www.flickr.com/<username>' },
     { 'name': 'MyOpenID', 'url': 'https://www.myopenid.com' }]
 
-SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
-#SQLALCHEMY_DATABASE_URI = 'mysql://root:password@localhost/quickhowto'
-#SQLALCHEMY_DATABASE_URI = 'postgresql://scott:tiger@localhost:5432/myapp'
+#SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+#SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://admin:admin123456@database-1.cl2kmwoq4j77.us-east-1.rds.amazonaws.com/appbuilder'
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://admin:admin123456@database-1.cl2kmwoq4j77.us-east-1.rds.amazonaws.com/appbuilder'
 #SQLALCHEMY_ECHO = True
 
 BABEL_DEFAULT_LOCALE = 'en'
